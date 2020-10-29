@@ -1,4 +1,4 @@
-MAGIC THE GATHERING: THE DECK BUILDER
+## MAGIC THE GATHERING: THE DECK BUILDER
 
 A project for the RW20 React course by Chas Academy.
 By Jonas Hörberg
