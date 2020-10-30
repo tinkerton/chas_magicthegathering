@@ -77,6 +77,17 @@ const App=()=> {
       fontWeight: '700',
 
     },
+    githubLink : {
+      color:'#DDD',
+      fontSize: '8 px',
+      textTransform:'uppercase',
+      textDecoration:'none',
+      display:'inline-block',
+      fontWeight:'700',
+      marginRight:'40px',
+      
+    },
+
     deckContainer: {
       display:'flex',
     },
@@ -234,8 +245,10 @@ function setNrOfInRoster(id, nrOf) {
         <div style={styles.navBar}>
         <div style={styles.logo}>MAGIC THE GATHERING: DECK BUILDER</div>
           <NavLink exact activeClassName='is-active' style={styles.menuItem} to="/">DECK BUILDER</NavLink>
-          <NavLink activeClassName='is-active' style={styles.menuItem} to="/roster">MY DECK</NavLink>
-        </div>
+          <NavLink activeClassName='is-active' style={styles.menuItem} to="/roster">MY DECK</NavLink> 
+          <a style={styles.githubLink} href="https://github.com/tinkerton/chas_magicthegathering" rel="noopener noreferrer" target="_blank">View on Gitub</a>
+          
+       </div>
   
         <div style={styles.deckContainer}>
         <Switch>
