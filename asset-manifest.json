@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/chas_magicthegathering/static/css/main.85bb3c47.chunk.css",
+    "main.js": "/chas_magicthegathering/static/js/main.42c123a8.chunk.js",
+    "main.js.map": "/chas_magicthegathering/static/js/main.42c123a8.chunk.js.map",
+    "runtime-main.js": "/chas_magicthegathering/static/js/runtime-main.661c4a21.js",
+    "runtime-main.js.map": "/chas_magicthegathering/static/js/runtime-main.661c4a21.js.map",
+    "static/js/2.0acecec1.chunk.js": "/chas_magicthegathering/static/js/2.0acecec1.chunk.js",
+    "static/js/2.0acecec1.chunk.js.map": "/chas_magicthegathering/static/js/2.0acecec1.chunk.js.map",
+    "index.html": "/chas_magicthegathering/index.html",
+    "precache-manifest.d1cd52bbdbd80441735b85f61f4b39c3.js": "/chas_magicthegathering/precache-manifest.d1cd52bbdbd80441735b85f61f4b39c3.js",
+    "service-worker.js": "/chas_magicthegathering/service-worker.js",
+    "static/css/main.85bb3c47.chunk.css.map": "/chas_magicthegathering/static/css/main.85bb3c47.chunk.css.map",
+    "static/js/2.0acecec1.chunk.js.LICENSE.txt": "/chas_magicthegathering/static/js/2.0acecec1.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.661c4a21.js",
+    "static/js/2.0acecec1.chunk.js",
+    "static/css/main.85bb3c47.chunk.css",
+    "static/js/main.42c123a8.chunk.js"
+  ]
+}
