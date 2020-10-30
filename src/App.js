@@ -2,14 +2,15 @@ import
   React, {
   useState, 
   useEffect,
-  Component
+ 
 } from 'react';
 
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  NavLink
+  
 } from "react-router-dom";
 
 import './App.css';
@@ -19,7 +20,7 @@ import DeckRoster from "./screens/DeckRoster";
 
 const App=()=> {
   
-  const DEVMODE = false;
+  const DEVMODE = false; //set to true to skip API call
   const [roster, setRoster] = useState([]);
   const [cards, setCards] = useState([]);
   const [error, setError] = useState(null);
@@ -79,6 +80,12 @@ const App=()=> {
     deckContainer: {
       display:'flex',
     },
+    deckPanelFull : {
+      width:'100%',
+      padding: '40px',
+      marginTop:'40px',
+      background:'##FFF',
+    },
     deckPanelLeft: {
 
       width: '63%',
@@ -107,7 +114,6 @@ const App=()=> {
    For quicker development, use local data 
    instead of getting it from the API by setting DEVMODE = true
   */
-  
     useEffect(() => {
       if (DEVMODE) {
         setCards([
@@ -135,8 +141,20 @@ const App=()=> {
           }
         )
       }
-      }, [DEVMODE])
-    
+      }, [DEVMODE]) //update on DEVMODE change
+  
+  /*In order to handle multiple callbacks from children,
+    this function relays the callback to specific functions
+  */
+  function modifyRoster(id, action='remove', nrOf=null) {
+    switch (action) {
+      case 'add': {addToRoster(id); break;}
+      case 'remove' : {removeFromRoster(id); break;}
+      case 'modify' : {setNrOfInRoster(id,nrOf); break;}
+      default : break;
+     
+    }
+  }
   
   /*Add more cards of tbe same if the card 
     is already in the roster, else add new card 
@@ -157,33 +175,52 @@ const App=()=> {
   
 }
 
-/*Remove one of card of tbe same type if the card 
-  is already in the roster, else remove the card entirely
+  /*Remove one of card of tbe same type if the card 
+    is already in the roster, else remove the card entirely
+  */
+  function removeFromRoster(id) {
+    var newRoster = [...roster];
+    const index = newRoster.indexOf(roster.find(card => card.id === id))
+    if (index !== -1) {
+      if (newRoster[index].nrOfCards>1) {
+        newRoster[index].nrOfCards--;
+        console.log(newRoster[index].nrOfCards)
+      }
+      else {
+        newRoster[index].nrOfCards=''; //needed to trigger rerender
+        newRoster.splice(index, 1);
+      }
+    
+      setRoster(newRoster);
+    }
+  }
+    
+/*Set a specific nr of cards to a  card
+  already in the roster, remove it if 0
 */
-function removeFromRoster(id) {
+function setNrOfInRoster(id, nrOf) {
   var newRoster = [...roster];
   const index = newRoster.indexOf(roster.find(card => card.id === id))
-  if (index !== -1) {
-    if (newRoster[index].nrOfCards>1)
-      newRoster[index].nrOfCards--;
-    else 
-      newRoster.splice(index, 1);
-    
-    setRoster(newRoster);
+  if (nrOf <=0) {
+
+    newRoster.splice(index, 1);
+  }else if (!isNaN(nrOf)) {
+    if (index !== -1) {
+      newRoster[index].nrOfCards=nrOf;
+     
+    }
   }
+  setRoster(newRoster);
 }
-    
-
-
-  
-  if (error) {
+  //RENDER
+  if (error) { //ERROR SCREEN
     return (
       <div style={styles.loadingContainer}>
         <div style={styles.loadingLogo}>
           <div style={styles.loadingText}>{error.message}</div>
         </div>
       </div>)
-  } else if (!isLoaded) {
+  } else if (!isLoaded) { //LOADING SCREEN
     return (
       <div style={styles.loadingContainer}>
         <div style={styles.loadingLogo}>
@@ -191,33 +228,37 @@ function removeFromRoster(id) {
         </div>
       </div>)
   } else {
-    return (
+    return ( 
+      //Using a Router component because it is mandatory in the course
       <Router>
         <div style={styles.navBar}>
         <div style={styles.logo}>MAGIC THE GATHERING: DECK BUILDER</div>
-        <Link style={styles.menuItem} to="/">DECK BUILDER</Link>
-        <Link style={styles.menuItem} to="/roster">MY ROSTER</Link>
+          <NavLink exact activeClassName='is-active' style={styles.menuItem} to="/">DECK BUILDER</NavLink>
+          <NavLink activeClassName='is-active' style={styles.menuItem} to="/roster">MY DECK</NavLink>
         </div>
-    
+  
+        <div style={styles.deckContainer}>
         <Switch>
           <Route path="/roster">
             <Roster 
+              style={styles.deckPanelFull}
               roster={roster}
-              onChange={(id)=>removeFromRoster(id) } />
+              onChange={(id,action,nrOf)=>modifyRoster(id,'remove',null) } />
           </Route>
           <Route path="/">
-            <div style={styles.deckContainer}>
               <DeckLibrary 
                 style={styles.deckPanelLeft}
-                cards={cards} 
-                onChange={(id)=>addToRoster(id) }/>
+                cards={cards}
+                roster={roster}
+                onChange={(id,action,nrOf)=>modifyRoster(id,'add',null) }/>
               <DeckRoster 
                 style={styles.deckPanelRight} 
                 roster={roster}
-                onChange={(id)=>removeFromRoster(id) } />
-            </div>
+                onChange={(id,action,nrOf)=>modifyRoster(id,action,nrOf) } />
+            
           </Route>
         </Switch>
+        </div>
       </Router>
     );
   }

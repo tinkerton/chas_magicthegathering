@@ -12,8 +12,7 @@ const DeckLibrary = (props) => {
         <Cards 
           cards={props.cards} 
           currentColor={cardColor} 
-          actionType={'Add'} 
-          onChange={(id) => props.onChange(id)}/>
+          onChange={(id) => props.onChange(id,'add',null)}/>
        </div>
     
   );             

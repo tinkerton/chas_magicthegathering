@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from '../components/Card';
 
+/*Renders all cards of one or more colors as Card-components*/
 const Cards = (props) => {
  const cardColor = props.currentColor;
   
@@ -19,9 +20,8 @@ const Cards = (props) => {
           ? (<Card 
             key={item.id} 
             card={item} 
-            actionType={props.actionType} 
             display={props.display}
-            onChange={(id) => props.onChange(id)}/>)
+            onChange={(id,action,nrOf) => props.onChange(id,action,nrOf)}/>)
           :false
 
         }

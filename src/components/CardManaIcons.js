@@ -36,6 +36,7 @@ const CardManaIcons = (props) => {
       top:'4px',
       left:'2px',
       width: '20px',
+     
     }
 
   })

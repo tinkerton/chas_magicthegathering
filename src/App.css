@@ -14,6 +14,9 @@
   animation: blinking 2s linear infinite;
 }
 
+.is-active {
+  color: #61dafb !important;
+}
 .gridCard {
   transform-origin: 0.75 left;
 }

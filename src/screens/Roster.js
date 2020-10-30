@@ -6,17 +6,14 @@ const Roster = (props) => {
   const [cardColor, setCardColor] = useState('All');
 
   return (
-    <div>
-      <h1>Deck Roster</h1>
-              
+    <div style={props.style}>
       <ManaFilter 
         onChange={(e)=>setCardColor(e.value)}/>
               
       <Cards 
         cards={props.roster} 
         currentColor={cardColor} 
-        actionType={'Delete'} 
-        onChange={(id) => props.onChange(id)}/>
+        onChange={(id,action,nrOf) => props.onChange(id,action,nrOf)}/>
 
     </div>
   );             

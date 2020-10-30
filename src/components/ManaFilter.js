@@ -1,6 +1,11 @@
 import React from 'react';
 import ColorButton from '../components/ColorButton';
 
+/*
+This component shows a row of buttons with the mana colors,
+clicking on a button sets a card color in root state, that is 
+used to filter all cards of the selected color
+*/
 const ManaFilter = (props) => {
 
   const buttons = [  
