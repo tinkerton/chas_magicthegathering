@@ -250,7 +250,7 @@ function setNrOfInRoster(id, nrOf) {
           
        </div>
   
-        <div style={styles.deckContainer}>
+        <div style={styles.deckContainer}>  
         <Switch>
           <Route path="/roster">
             <Roster 

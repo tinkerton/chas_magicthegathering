@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/chas_magicthegathering/static/css/main.85bb3c47.chunk.css",
-    "main.js": "/chas_magicthegathering/static/js/main.14f8d119.chunk.js",
-    "main.js.map": "/chas_magicthegathering/static/js/main.14f8d119.chunk.js.map",
+    "main.js": "/chas_magicthegathering/static/js/main.3d829fbf.chunk.js",
+    "main.js.map": "/chas_magicthegathering/static/js/main.3d829fbf.chunk.js.map",
     "runtime-main.js": "/chas_magicthegathering/static/js/runtime-main.661c4a21.js",
     "runtime-main.js.map": "/chas_magicthegathering/static/js/runtime-main.661c4a21.js.map",
     "static/js/2.0acecec1.chunk.js": "/chas_magicthegathering/static/js/2.0acecec1.chunk.js",
     "static/js/2.0acecec1.chunk.js.map": "/chas_magicthegathering/static/js/2.0acecec1.chunk.js.map",
     "index.html": "/chas_magicthegathering/index.html",
-    "precache-manifest.9f6ef2ed1372a8b17e12a2ea314fb83a.js": "/chas_magicthegathering/precache-manifest.9f6ef2ed1372a8b17e12a2ea314fb83a.js",
+    "precache-manifest.b78fe12cb5c7997c96898cfae59019d8.js": "/chas_magicthegathering/precache-manifest.b78fe12cb5c7997c96898cfae59019d8.js",
     "service-worker.js": "/chas_magicthegathering/service-worker.js",
     "static/css/main.85bb3c47.chunk.css.map": "/chas_magicthegathering/static/css/main.85bb3c47.chunk.css.map",
     "static/js/2.0acecec1.chunk.js.LICENSE.txt": "/chas_magicthegathering/static/js/2.0acecec1.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.661c4a21.js",
     "static/js/2.0acecec1.chunk.js",
     "static/css/main.85bb3c47.chunk.css",
-    "static/js/main.14f8d119.chunk.js"
+    "static/js/main.3d829fbf.chunk.js"
   ]
 }

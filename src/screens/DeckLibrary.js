@@ -2,6 +2,11 @@ import React,{useState} from 'react';
 import ManaFilter from '../components/ManaFilter';
 import Cards from '../components/Cards';
 
+
+/*
+This component shows a grid of cards provided by the API
+On top of it is a filter module that filters card by color
+*/
 const DeckLibrary = (props) => {
   const [cardColor, setCardColor] = useState('All');
 

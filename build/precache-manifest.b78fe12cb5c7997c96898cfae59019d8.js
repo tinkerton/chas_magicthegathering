@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "9add172d8438b8c9947d379aaa65e418",
+    "revision": "f795af2bcd5ada99a55e01ee8b402375",
     "url": "/chas_magicthegathering/index.html"
   },
   {
-    "revision": "4dbaa0b4eeba87803b42",
+    "revision": "5badaa429ec15480e108",
     "url": "/chas_magicthegathering/static/css/main.85bb3c47.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/chas_magicthegathering/static/js/2.0acecec1.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "4dbaa0b4eeba87803b42",
-    "url": "/chas_magicthegathering/static/js/main.14f8d119.chunk.js"
+    "revision": "5badaa429ec15480e108",
+    "url": "/chas_magicthegathering/static/js/main.3d829fbf.chunk.js"
   },
   {
     "revision": "8f553e7d292a4378979d",
