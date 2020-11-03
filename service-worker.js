@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/chas_magicthegathering/precache-manifest.d1cd52bbdbd80441735b85f61f4b39c3.js"
+  "/chas_magicthegathering/precache-manifest.9f6ef2ed1372a8b17e12a2ea314fb83a.js"
 );
 
 self.addEventListener('message', (event) => {
