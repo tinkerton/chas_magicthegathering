@@ -244,8 +244,8 @@ function setNrOfInRoster(id, nrOf) {
       <Router>
         <div style={styles.navBar}>
         <div style={styles.logo}>MAGIC THE GATHERING: DECK BUILDER</div>
-          <NavLink exact activeClassName='is-active' style={styles.menuItem} to="/chas_magicthegathering/">DECK BUILDER</NavLink>
-          <NavLink activeClassName='is-active' style={styles.menuItem} to="/chas_magicthegathering/roster">MY DECK</NavLink> 
+          <NavLink exact activeClassName='is-active' style={styles.menuItem} to="/">DECK BUILDER</NavLink>
+          <NavLink activeClassName='is-active' style={styles.menuItem} to="/roster">MY DECK</NavLink> 
           <a style={styles.githubLink} href="https://github.com/tinkerton/chas_magicthegathering" rel="noopener noreferrer" target="_blank">View on Gitub</a>
           
        </div>

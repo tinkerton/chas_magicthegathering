@@ -1,6 +1,6 @@
 {
   "name": "magictcg",
-  "homepage": "https://tinkerton.github.io/chas_magicthegathering",
+  "homepage": "https://tinkerton.github.io",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
