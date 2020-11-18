@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  button="B"
+  onClick={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "background": "#F7F7F7",
+      "borderBottom": "1px solid #CCC",
+      "borderRadius": "4px 4px 0px 0px",
+      "boxSizing": "border-box",
+      "display": "flex",
+      "flexDirection": "row",
+      "height": "44px",
+      "margin": "0px 4px 40px 0",
+      "minWidth": "16%",
+      "position": "relative",
+      "textAlign": "center",
+    }
+  }
+>
+  <img
+    src="assets/images/B.svg"
+    style={
+      Object {
+        "background": "#FFF",
+        "borderRadius": "100px",
+        "left": "10px",
+        "margin": "0px 0px 20px 0px",
+        "maxWidth": "20px",
+        "padding": "4px",
+        "position": "absolute",
+        "top": "8px",
+      }
+    }
+  />
+  <span
+    style={
+      Object {
+        "color": "#333",
+        "fontFamily": "Arial",
+        "fontSize": "12px",
+        "fontWeight": "bold",
+        "left": "45px",
+        "position": "absolute",
+        "textTransform": "uppercase",
+        "top": "15px",
+      }
+    }
+  />
+</div>
+`;

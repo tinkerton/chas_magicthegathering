@@ -14,6 +14,7 @@ import {
 } from "react-router-dom";
 
 import './App.css';
+import ErrorBoundary from "./ErrorBoundary";
 import DeckLibrary from "./screens/DeckLibrary";
 import Roster from "./screens/Roster";
 import DeckRoster from "./screens/DeckRoster";
@@ -224,7 +225,7 @@ function setNrOfInRoster(id, nrOf) {
   setRoster(newRoster);
 }
   //RENDER
-  if (error) { //ERROR SCREEN
+  if (error) { //API ERROR SCREEN
     return (
       <div style={styles.loadingContainer}>
         <div style={styles.loadingLogo}>
@@ -241,38 +242,40 @@ function setNrOfInRoster(id, nrOf) {
   } else {
     return ( 
       //Using a Router component because it is mandatory in the course
-      <Router>
-        <div style={styles.navBar}>
-        <div style={styles.logo}>MAGIC THE GATHERING: DECK BUILDER</div>
-          <NavLink exact activeClassName='is-active' style={styles.menuItem} to="/">DECK BUILDER</NavLink>
-          <NavLink activeClassName='is-active' style={styles.menuItem} to="/roster">MY DECK</NavLink> 
-          <a style={styles.githubLink} href="https://github.com/tinkerton/chas_magicthegathering" rel="noopener noreferrer" target="_blank">View on Gitub</a>
-          
-       </div>
-  
-        <div style={styles.deckContainer}>  
-        <Switch>
-          <Route path="/roster">
-            <Roster 
-              style={styles.deckPanelFull}
-              roster={roster}
-              onChange={(id,action,nrOf)=>modifyRoster(id,'remove',null) } />
-          </Route>
-          <Route path="/">
-              <DeckLibrary 
-                style={styles.deckPanelLeft}
-                cards={cards}
-                roster={roster}
-                onChange={(id,action,nrOf)=>modifyRoster(id,'add',null) }/>
-              <DeckRoster 
-                style={styles.deckPanelRight} 
-                roster={roster}
-                onChange={(id,action,nrOf)=>modifyRoster(id,action,nrOf) } />
+      <ErrorBoundary>
+        <Router>
+          <div style={styles.navBar}>
+          <div style={styles.logo}>MAGIC THE GATHERING: DECK BUILDER</div>
+            <NavLink exact activeClassName='is-active' style={styles.menuItem} to="/">DECK BUILDER</NavLink>
+            <NavLink activeClassName='is-active' style={styles.menuItem} to="/roster">MY DECK</NavLink> 
+            <a style={styles.githubLink} href="https://github.com/tinkerton/chas_magicthegathering" rel="noopener noreferrer" target="_blank">View on Gitub</a>
             
-          </Route>
-        </Switch>
         </div>
-      </Router>
+    
+          <div style={styles.deckContainer}>  
+          <Switch>
+            <Route path="/roster">
+              <Roster 
+                style={styles.deckPanelFull}
+                roster={roster}
+                onChange={(id,action,nrOf)=>modifyRoster(id,'remove',null) } />
+            </Route>
+            <Route path="/">
+                <DeckLibrary 
+                  style={styles.deckPanelLeft}
+                  cards={cards}
+                  roster={roster}
+                  onChange={(id,action,nrOf)=>modifyRoster(id,'add',null) }/>
+                <DeckRoster 
+                  style={styles.deckPanelRight} 
+                  roster={roster}
+                  onChange={(id,action,nrOf)=>modifyRoster(id,action,nrOf) } />
+              
+            </Route>
+          </Switch>
+          </div>
+        </Router>
+      </ErrorBoundary>
     );
   }
 }
