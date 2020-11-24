@@ -10,6 +10,7 @@ class Cards extends React.Component {
     return (
       <div style={{display: 'flex', flexWrap: 'wrap', flexDirection:props.display==="List"?'column':'row'}}>
       {
+
         props.cards
         .filter(
           card => {
