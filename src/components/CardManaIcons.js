@@ -2,8 +2,7 @@ import React from 'react';
 
 const CardManaIcons = (props) => {
 
-  const icons = [  
-   
+  const icons = [     
     {value: "B",  imagePath:"assets/images/B.svg" },
     {value: "U",  imagePath:"assets/images/U.svg"  },
     {value: "G", imagePath:"assets/images/G.svg"  },

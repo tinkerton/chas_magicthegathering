@@ -1,5 +1,5 @@
 import React from "react";
-import * as renderer from 'react-test-renderer';
+import renderer from 'react-test-renderer';
 import ColorButton from '../components/ColorButton';
 
 it('renders correctly', () => {

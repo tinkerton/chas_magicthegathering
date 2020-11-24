@@ -18,6 +18,8 @@ import ErrorBoundary from "./ErrorBoundary";
 import DeckLibrary from "./screens/DeckLibrary";
 import Roster from "./screens/Roster";
 import DeckRoster from "./screens/DeckRoster";
+import {ThemeContext, themes} from './components/ThemeContext';
+import ThemedButton from './components/ThemedButton';
 
 const App=()=> {
   
@@ -26,6 +28,7 @@ const App=()=> {
   const [cards, setCards] = useState([]);
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [theme, setTheme] = useState(themes.light);
  
 
   const styles = ({
@@ -92,33 +95,8 @@ const App=()=> {
     deckContainer: {
       display:'flex',
     },
-    deckPanelFull : {
-      width:'100%',
-      padding: '40px',
-      marginTop:'40px',
-      background:'##FFF',
-    },
-    deckPanelLeft: {
-
-      width: '63%',
-      padding: '40px',
-      marginTop:'40px',
-      background:'##FFF',
-     
-      
-    },
-    deckPanelRight: {
-      width: '25%',
-      minWidth:'350px',
-      padding: '40px',
-      background:'#f7F7F7',
-      position: 'fixed',
-      right:'0',
-      top: '58px',
-      height: 'calc(100vh - 58px)',
-      boxShadow: '-3px 0px 15px rgba(0,0,0,0.4)',
-    }
-
+    
+   
   })
 
 
@@ -224,6 +202,22 @@ function setNrOfInRoster(id, nrOf) {
   }
   setRoster(newRoster);
 }
+
+function toggleTheme() {
+  theme === themes.dark
+  ? setTheme(themes.light)
+  : setTheme(themes.dark)
+}
+
+function Toolbar(props) {
+  return (
+    <ThemedButton onClick={props.changeTheme}>
+      Change Theme
+    </ThemedButton>
+  );
+}
+
+
   //RENDER
   if (error) { //API ERROR SCREEN
     return (
@@ -243,9 +237,11 @@ function setNrOfInRoster(id, nrOf) {
     return ( 
       //Using a Router component because it is mandatory in the course
       <ErrorBoundary>
+       <ThemeContext.Provider value={theme}>
         <Router>
           <div style={styles.navBar}>
           <div style={styles.logo}>MAGIC THE GATHERING: DECK BUILDER</div>
+          <Toolbar changeTheme={toggleTheme} />
             <NavLink exact activeClassName='is-active' style={styles.menuItem} to="/">DECK BUILDER</NavLink>
             <NavLink activeClassName='is-active' style={styles.menuItem} to="/roster">MY DECK</NavLink> 
             <a style={styles.githubLink} href="https://github.com/tinkerton/chas_magicthegathering" rel="noopener noreferrer" target="_blank">View on Gitub</a>
@@ -255,26 +251,25 @@ function setNrOfInRoster(id, nrOf) {
           <div style={styles.deckContainer}>  
           <Switch>
             <Route path="/roster">
-              <Roster 
-                style={styles.deckPanelFull}
-                roster={roster}
-                onChange={(id,action,nrOf)=>modifyRoster(id,'remove',null) } />
+             
+                <Roster 
+                  roster={roster}
+                  onChange={(id,action,nrOf)=>modifyRoster(id,'remove',null) } />
             </Route>
             <Route path="/">
                 <DeckLibrary 
-                  style={styles.deckPanelLeft}
                   cards={cards}
                   roster={roster}
                   onChange={(id,action,nrOf)=>modifyRoster(id,'add',null) }/>
                 <DeckRoster 
-                  style={styles.deckPanelRight} 
                   roster={roster}
                   onChange={(id,action,nrOf)=>modifyRoster(id,action,nrOf) } />
-              
+             
             </Route>
           </Switch>
           </div>
         </Router>
+        </ThemeContext.Provider>
       </ErrorBoundary>
     );
   }

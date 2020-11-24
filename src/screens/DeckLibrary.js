@@ -1,6 +1,7 @@
-import React,{useState} from 'react';
+import React,{useState, useContext} from 'react';
 import ManaFilter from '../components/ManaFilter';
 import Cards from '../components/Cards';
+import {ThemeContext} from '../components/ThemeContext';
 
 
 /*
@@ -9,9 +10,22 @@ On top of it is a filter module that filters card by color
 */
 const DeckLibrary = (props) => {
   const [cardColor, setCardColor] = useState('All');
+  const theme = useContext(ThemeContext);
+
+  const styles = ({
+    deckPanelLeft: {
+
+      width: '63%',
+      padding: '40px',
+      marginTop:'40px',
+      height: '100vh',
+     
+      
+    }
+  });
 
   return (
-      <div style={props.style}>
+      <div style={{...styles.deckPanelLeft, background: theme.background}}>
         <ManaFilter 
         onChange={(e)=>setCardColor(e.value)}/>
         <Cards 
