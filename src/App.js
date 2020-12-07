@@ -118,7 +118,7 @@ const App=()=> {
       }
       else {
         //Fetch MTG API data if not DEVMODE
-        fetch("https://api.magicthegathering.io/v1/cards?code=10e")
+        fetch("https://cors-anywhere.herokuapp.com/https://api.magicthegathering.io/v1/cards?code=10e")
         .then(res => res.json())
         .then(
           (result) => {
